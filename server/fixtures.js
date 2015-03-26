@@ -1,6 +1,5 @@
 // Fixture data
-
-if (Posts.find().count === 0) {
+if (Posts.find().count() === 0) {
   var now = new Date().getTime();
 
   // create two users
@@ -8,9 +7,8 @@ if (Posts.find().count === 0) {
     profile: { name: 'Tom Coleman' }
   });
   var tom = Meteor.users.findOne(tomId);
-
   var sachaId = Meteor.users.insert({
-    profile: { name: 'Sacha Grief' }
+    profile: { name: 'Sacha Greif' }
   });
   var sacha = Meteor.users.findOne(sachaId);
 
@@ -30,7 +28,7 @@ if (Posts.find().count === 0) {
     body: 'Interesting project Sacha, can I get involved?'
   });
 
- Comments.insert({
+  Comments.insert({
     postId: telescopeId,
     userId: sacha._id,
     author: sacha.profile.name,
